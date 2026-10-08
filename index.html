@@ -174,10 +174,43 @@
             <li><span>2</span><b>엣지케이스 검증</b><p>전환 과정의 예외 상황을 빠짐없이 점검해 전환 시나리오 확정</p></li>
             <li><span>3</span><b>QA</b><p>실전과 같은 QA로 전환 당일까지 무결성 확인</p></li>
           </ol>
-          <div class="uptime" aria-label="전환 전후 서비스 가동 상태: 중단 없음">
-            <div class="uptime__head"><b>매입 서비스 가동 상태</b><span class="ok">● 무장애 · 무중단</span></div>
-            <div class="uptime__bar" id="uptimeBar"></div>
-            <div class="uptime__legend"><span>기존 VAN</span><span class="cut">▲ 전환 시점</span><span>신규 VAN</span></div>
+          <div class="switch" id="vanSwitch" aria-label="매입 경로가 기존 VAN에서 신규 VAN으로 중단 없이 전환되는 과정">
+            <div class="switch__head">
+              <div class="switch__live"><i></i><span id="swStatus">기존 VAN 경유 매입 중</span></div>
+              <div class="switch__count">매입 처리 <strong id="swCount">0</strong>건 <em>· 중단 0분</em></div>
+            </div>
+
+            <div class="lanes">
+              <div class="lane is-active" data-lane="old">
+                <span class="lane__node">PG</span>
+                <div class="lane__track"><span class="pk"></span><span class="pk"></span><span class="pk"></span></div>
+                <span class="lane__node lane__node--van">기존 VAN<small id="oldState">운영 중</small></span>
+                <div class="lane__track lane__track--short"><span class="pk"></span><span class="pk"></span></div>
+                <span class="lane__node">카드사</span>
+              </div>
+
+              <div class="toggle" aria-hidden="true">
+                <span class="toggle__knob"></span>
+                <b>전환</b>
+              </div>
+
+              <div class="lane" data-lane="new">
+                <span class="lane__node">PG</span>
+                <div class="lane__track"><span class="pk"></span><span class="pk"></span><span class="pk"></span></div>
+                <span class="lane__node lane__node--van lane__node--new">신규 VAN<small id="newState">대기</small></span>
+                <div class="lane__track lane__track--short"><span class="pk"></span><span class="pk"></span></div>
+                <span class="lane__node">카드사</span>
+              </div>
+            </div>
+
+            <div class="switch__foot">
+              <ul class="results">
+                <li><b>0건</b><span>전환 중 장애</span></li>
+                <li><b>0분</b><span>서비스 중단</span></li>
+                <li><b>✓</b><span>신규 VAN 안착</span></li>
+              </ul>
+              <button class="replay" type="button" id="swReplay">↻ 다시 보기</button>
+            </div>
           </div>
         </article>
 

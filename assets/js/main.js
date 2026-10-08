@@ -79,21 +79,54 @@
     requestAnimationFrame(step);
   };
 
-  /* ---------- VAN migration: steps + uptime ---------- */
-  const uptime = $("#uptimeBar");
-  const cells = [];
-  if (uptime) {
-    const n = innerWidth <= 720 ? 30 : 60;
-    for (let k = 0; k < n; k++) { const c = document.createElement("i"); uptime.appendChild(c); cells.push(c); }
-  }
+  /* ---------- VAN migration: steps + live switch-over ---------- */
+  const sw = $("#vanSwitch");
+  const swCount = $("#swCount");
+  const oldLane = $('.lane[data-lane="old"]');
+  const newLane = $('.lane[data-lane="new"]');
+  const results = $$(".results li");
+  let processed = 0;
+  let counterOn = false;
+  // 매입 처리 건수는 전환 중에도 멈추지 않고 계속 증가 → '무중단'을 시각화
+  const tick = () => {
+    if (!counterOn) return;
+    processed += 7 + Math.floor(Math.random() * 9);
+    swCount.textContent = processed.toLocaleString("ko-KR");
+    setTimeout(tick, reduced ? 1000 : 120);
+  };
+  let swRun = 0;
+  const runSwitch = async () => {
+    const id = ++swRun;
+    const alive = () => id === swRun;
+    sw.classList.remove("is-switched");
+    oldLane.classList.add("is-active");
+    newLane.classList.remove("is-active");
+    $("#oldState").textContent = "운영 중";
+    $("#newState").textContent = "대기";
+    $("#swStatus").textContent = "기존 VAN 경유 매입 중";
+    results.forEach((r) => r.classList.remove("is-on"));
+    if (!counterOn) { counterOn = true; tick(); }
+
+    await sleep(2200); if (!alive()) return;
+    sw.classList.add("is-switched");
+    newLane.classList.add("is-active");
+    $("#newState").textContent = "연결";
+    $("#swStatus").textContent = "신규 VAN으로 전환 중 · 매입 정상";
+
+    await sleep(900); if (!alive()) return;
+    oldLane.classList.remove("is-active");
+    $("#oldState").textContent = "전환 완료";
+    $("#newState").textContent = "운영 중";
+    $("#swStatus").textContent = "신규 VAN 경유 매입 중";
+
+    for (const r of results) { await sleep(350); if (!alive()) return; r.classList.add("is-on"); }
+  };
+  $("#swReplay")?.addEventListener("click", runSwitch);
+
   const runMigration = async () => {
     const steps = $$("#chevrons li");
     for (const s of steps) { s.classList.add("is-done"); await sleep(550); }
-    const cut = Math.floor(cells.length / 2);
-    for (let k = 0; k < cells.length; k++) {
-      cells[k].classList.add(k === cut ? "cut" : "on");
-      await sleep(22);
-    }
+    if (sw) runSwitch();
   };
 
   /* ---------- reveal observer ---------- */
