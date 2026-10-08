@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>장소은 | 결제인프라 포트폴리오</title>
+  <meta name="description" content="소통과 협업으로 돌파구를 찾는 결제인프라 담당자 장소은의 이력서·포트폴리오" />
+  <meta property="og:title" content="장소은 | Business Partnership Manager" />
+  <meta property="og:description" content="게임 가맹점 한도 20배 상향 · 매입 VAN 무중단 연동 · AI 기반 서류 자동화로 리드타임 50% 단축" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0B1220" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%233182F6'/><text x='32' y='44' font-size='32' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>S</text></svg>" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top">장소은<span>.</span></a>
+    <nav class="nav__links" aria-label="섹션">
+      <a href="#impact">성과</a>
+      <a href="#cases">프로젝트</a>
+      <a href="#ai">AI 활용</a>
+      <a href="#career">경력</a>
+      <a href="#contact">연락처</a>
+    </nav>
+    <button class="nav__print" type="button" id="printBtn" aria-label="PDF로 저장">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3v10.6l3.3-3.3 1.4 1.4L12 16.4l-4.7-4.7 1.4-1.4 3.3 3.3V3h2zM5 19h14v2H5z"/></svg>
+      PDF 저장
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid wrap">
+        <div class="hero__copy">
+          <p class="eyebrow eyebrow--dark reveal">Business Partnership Manager · 결제인프라</p>
+          <h1 class="reveal">
+            소통과 협업으로<br />
+            <span class="rotator" aria-live="polite"><span id="rotator">원천사 협상</span><i class="caret"></i></span>의<br />
+            돌파구를 찾는 장소은
+          </h1>
+          <p class="hero__lead reveal">
+            카드사·VAN사·은행·한국문화정보원처럼 이해관계가 다른 파트너 사이에서 <b>합의를 만들어내는</b> 결제인프라 담당자입니다.
+            카드사가 어렵다던 한도를 데이터로 설득해 <b>20배</b> 끌어올렸고, 매입 VAN 전환을 <b>장애 0건</b>으로 마쳤으며,
+            반복 업무는 AI로 직접 자동화해 리드타임을 <b>절반</b>으로 줄였습니다.
+          </p>
+          <div class="hero__cta reveal">
+            <a class="btn btn--primary" href="#cases">핵심 프로젝트 보기</a>
+            <a class="btn btn--ghost" href="#ai-demo">AI 자동화 체험하기 →</a>
+          </div>
+        </div>
+
+        <div class="console reveal" aria-label="결제 흐름 시각화">
+          <div class="console__head">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="console__title">payment-flow · live</span>
+            <span class="console__status"><i></i>정상</span>
+          </div>
+          <div class="flow">
+            <div class="flow__track"><span class="packet"></span><span class="packet p2"></span></div>
+            <div class="flow__node"><b>🏪</b><span>가맹점</span></div>
+            <div class="flow__node flow__node--me"><b>PG</b><span>네이버페이</span></div>
+            <div class="flow__node"><b>VAN</b><span>매입 중계</span></div>
+            <div class="flow__node"><b>💳</b><span>카드사</span></div>
+          </div>
+          <ul class="console__log" id="consoleLog"></ul>
+          <div class="console__profile">
+            <img src="assets/img/profile.webp" alt="장소은 프로필 사진" width="56" height="56" />
+            <div>
+              <strong>장소은</strong>
+              <span>네이버파이낸셜 결제인프라 · 2024.11 – 재직 중</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#impact" aria-label="아래로 스크롤"><span></span></a>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section" id="impact">
+      <div class="wrap">
+        <p class="eyebrow reveal">Impact</p>
+        <h2 class="reveal">숫자로 보는 성과</h2>
+        <div class="kpis">
+          <article class="kpi reveal">
+            <span class="kpi__label">게임 가맹점 일 한도</span>
+            <strong class="kpi__num"><span data-count="20">0</span>배</strong>
+            <p>50만 원 → 1,000만 원<br />원천사 전체 동일 한도 승인</p>
+          </article>
+          <article class="kpi reveal">
+            <span class="kpi__label">매입 VAN 전환 중 장애</span>
+            <strong class="kpi__num"><span data-count="0">0</span>건</strong>
+            <p>무장애·무중단<br />매입 중계 VAN사 신규 연동</p>
+          </article>
+          <article class="kpi kpi--ai reveal">
+            <span class="kpi__label">AI 자동화 · 업무 리드타임</span>
+            <strong class="kpi__num">−<span data-count="50">0</span>%</strong>
+            <p>원천사 구비서류 자동화<br />휴먼에러 방지 · 검증 정확도 향상</p>
+          </article>
+          <article class="kpi reveal">
+            <span class="kpi__label">직접 운영하는 업무 영역</span>
+            <strong class="kpi__num"><span data-count="14">0</span>개</strong>
+            <p>가맹점·연동·정산·한도<br />결제인프라 전 영역</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section section--tint" id="cases">
+      <div class="wrap">
+        <p class="eyebrow reveal">Key Projects</p>
+        <h2 class="reveal">문제를 정의하고, 끝까지 해결합니다</h2>
+
+        <!-- CASE 01 -->
+        <article class="case reveal">
+          <header class="case__head">
+            <span class="case__no">01</span>
+            <div>
+              <span class="tag">원천사 협상</span>
+              <h3>카드사의 ‘불가’ 의견을 데이터로 뒤집어 게임 가맹점 한도 <em>20배 상향</em></h3>
+              <p class="case__sum">사후 대응에 머무는 카드사를 선제적 소명으로 설득해, 넥슨·네오플 전 가맹점에 동일 한도 승인을 받아냈습니다.</p>
+            </div>
+          </header>
+          <div class="case__body">
+            <div class="case__cols">
+              <div class="case__col">
+                <h4>현상 및 요구사항</h4>
+                <ul>
+                  <li>가맹점 측: 넥슨 및 네오플(넥슨 자회사)에 동일한 게임 한도 반영 요청</li>
+                  <li>카드사 측: 기존 매출 이력·카드회원 민원 데이터 기준으로 동일 한도 부여가 어렵다는 의견</li>
+                </ul>
+              </div>
+              <div class="case__col">
+                <h4>협의 방안 및 실행</h4>
+                <ol class="steps">
+                  <li><b>프레임 전환</b> ‘문제가 생기면 대응’하는 카드사의 사후 방식의 한계를 짚고, 선제적 소명으로 협의 주도권 확보</li>
+                  <li><b>리스크 논리 설계</b> 한도 불일치가 오히려 고객 결제 혼란과 민원을 키운다는 역발상 논리 구성</li>
+                  <li><b>데이터로 입증</b> 매출·비교 분석 근거자료를 직접 준비해 제출, 원천사 전체 승인 도출</li>
+                </ol>
+              </div>
+            </div>
+            <div class="case__result">
+              <h4>성과</h4>
+              <strong class="big"><span data-count="20">0</span>배</strong>
+              <p>원천사 전체 가맹점 동일 한도 승인</p>
+              <div class="bars" role="img" aria-label="일 한도 50만 원에서 1,000만 원으로 상향">
+                <div class="bar"><div class="bar__fill bar__fill--muted" style="--h:5%"><span>50만</span></div><label>상향 전</label></div>
+                <div class="bar"><div class="bar__fill" style="--h:100%"><span>1,000만</span></div><label>상향 후</label></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 02 -->
+        <article class="case reveal">
+          <header class="case__head">
+            <span class="case__no">02</span>
+            <div>
+              <span class="tag">인프라 연동</span>
+              <h3>멈추면 안 되는 매입 경로를 교체하며, <em>장애 0건</em> 신규 VAN 연동</h3>
+              <p class="case__sum">사전 협의부터 엣지케이스 검증, QA까지 전 과정을 챙겨 서비스 중단 없이 매입 중계 VAN사 전환을 안착시켰습니다.</p>
+            </div>
+          </header>
+          <div class="case__goal">
+            <b>목표</b> 서비스 중단 없는 매입 중계 VAN사 신규 연동과 안정적인 결제 인프라 구축
+          </div>
+          <ol class="chevrons" id="chevrons">
+            <li><span>1</span><b>사전 협의</b><p>VAN사와 매입 스펙을 사전 검토해 전환 리스크를 착수 전에 제거</p></li>
+            <li><span>2</span><b>엣지케이스 검증</b><p>전환 과정의 예외 상황을 빠짐없이 점검해 전환 시나리오 확정</p></li>
+            <li><span>3</span><b>QA</b><p>실전과 같은 QA로 전환 당일까지 무결성 확인</p></li>
+          </ol>
+          <div class="uptime" aria-label="전환 전후 서비스 가동 상태: 중단 없음">
+            <div class="uptime__head"><b>매입 서비스 가동 상태</b><span class="ok">● 무장애 · 무중단</span></div>
+            <div class="uptime__bar" id="uptimeBar"></div>
+            <div class="uptime__legend"><span>기존 VAN</span><span class="cut">▲ 전환 시점</span><span>신규 VAN</span></div>
+          </div>
+        </article>
+
+        <!-- CASE 03 -->
+        <article class="case case--ai reveal">
+          <header class="case__head">
+            <span class="case__no">03</span>
+            <div>
+              <span class="tag tag--ai">AI 자동화</span>
+              <h3>AI로 원천사 구비서류 자동화 프로그램을 구축해 <em>리드타임 50% 단축</em></h3>
+              <p class="case__sum">현업 담당자로서 반복 업무의 병목을 직접 찾고, AI를 활용해 해결책까지 만들어 팀의 시간을 돌려받았습니다.</p>
+            </div>
+          </header>
+          <div class="case__body">
+            <div class="case__cols">
+              <div class="case__col">
+                <h4>문제점</h4>
+                <ul>
+                  <li>원천사별로 제각각인 구비서류 양식으로 같은 정보를 반복 입력</li>
+                  <li>수동 입력 방식에 따른 휴먼에러 발생 가능성</li>
+                </ul>
+              </div>
+              <div class="case__col">
+                <h4>개선 방안</h4>
+                <ul>
+                  <li>서류 간 중복 항목을 <b>단 1회 입력</b>하면 원천사별 서류가 자동으로 작성되는 프로그램 구축</li>
+                </ul>
+                <a class="link" href="#ai-demo">아래에서 직접 체험해 보세요 ↓</a>
+              </div>
+            </div>
+            <div class="case__result">
+              <h4>성과</h4>
+              <strong class="big">약 <span data-count="50">0</span>%↓</strong>
+              <p>업무 리드타임 (도입 전 대비)</p>
+              <div class="bars" role="img" aria-label="리드타임 100에서 50으로 감소">
+                <div class="bar"><div class="bar__fill bar__fill--muted" style="--h:100%"><span>100</span></div><label>도입 전</label></div>
+                <div class="bar"><div class="bar__fill" style="--h:50%"><span>50</span></div><label>도입 후</label></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section class="section section--dark" id="ai">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--dark reveal">AI × Payments</p>
+        <h2 class="reveal">반복은 AI에게, 판단은 사람이</h2>
+        <p class="section__lead reveal">AI를 ‘써보는’ 데서 끝내지 않고, 실제 운영 업무에 적용해 시간을 돌려받습니다.</p>
+
+        <!-- Demo -->
+        <div class="demo reveal" id="ai-demo">
+          <div class="demo__head">
+            <div>
+              <span class="tag tag--ai">Interactive Demo</span>
+              <h3>원천사 구비서류 자동화, 직접 체험하기</h3>
+              <p>왼쪽 정보를 한 번만 입력하면, 원천사마다 다른 양식의 서류가 자동으로 채워집니다. <small>(가상 데이터 · 실제 프로그램의 동작 원리를 재현한 데모)</small></p>
+            </div>
+            <div class="demo__meter">
+              <div><span>수동 입력</span><strong id="manualCount">0</strong><em>회</em></div>
+              <div class="arrow">→</div>
+              <div class="hi"><span>자동화</span><strong>1</strong><em>회</em></div>
+            </div>
+          </div>
+          <div class="demo__grid">
+            <form class="demo__form" id="demoForm" autocomplete="off">
+              <label>가맹점명<input name="name" value="(주)소은게임즈" /></label>
+              <label>사업자등록번호<input name="biz" value="123-45-67890" /></label>
+              <label>대표자명<input name="ceo" value="홍길동" /></label>
+              <label>업종<input name="type" value="온라인 게임 (디지털 콘텐츠)" /></label>
+              <label>서비스 URL<input name="url" value="https://game.example.com" /></label>
+              <button class="btn btn--primary btn--block" type="submit" id="demoRun">
+                <span class="spark">✦</span> 1회 입력으로 서류 자동 생성
+              </button>
+            </form>
+            <div class="docs" id="docs"></div>
+          </div>
+        </div>
+
+        <!-- Principles -->
+        <div class="flowline reveal">
+          <h3>AI를 업무에 녹이는 방식</h3>
+          <ol>
+            <li><span>01</span><b>반복 찾기</b><p>원천사별로 같은 정보를 다시 쓰는 구간을 식별</p></li>
+            <li><span>02</span><b>구조화</b><p>서류 간 중복 항목을 하나의 입력 체계로 정리</p></li>
+            <li><span>03</span><b>자동화</b><p>AI로 양식별 서류를 자동 작성</p></li>
+            <li><span>04</span><b>사람의 검증</b><p>최종 서류는 담당자가 확인해 정확도 확보</p></li>
+            <li><span>05</span><b>확산</b><p>반복 운영 공수를 지속적으로 줄여 팀 생산성 제고</p></li>
+          </ol>
+        </div>
+
+        <!-- Built with AI -->
+        <div class="built reveal">
+          <div class="built__copy">
+            <span class="tag tag--ai">Built with AI</span>
+            <h3>이 웹사이트도 AI와 함께 만들었습니다</h3>
+            <p>
+              이력서·포트폴리오 PDF와 디자인 레퍼런스를 AI 코딩 에이전트(Claude Code)에게 전달하고,
+              방향을 잡고 검토하며 하루 만에 기획부터 GitHub Pages 배포까지 완료했습니다.
+              코드를 처음부터 쓰지 않아도, 무엇을 만들지 정확히 설명하고 결과를 검증하는 것이 AI 활용 역량이라고 생각합니다.
+            </p>
+          </div>
+          <div class="terminal" aria-label="사이트 제작 과정 로그">
+            <div class="console__head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="console__title">claude-code · portfolio</span></div>
+            <pre id="terminal"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section class="section" id="career">
+      <div class="wrap">
+        <p class="eyebrow reveal">Experience</p>
+        <h2 class="reveal">경력 사항</h2>
+
+        <div class="job reveal">
+          <div class="job__side">
+            <span class="job__period">2024.11 – 재직 중</span>
+            <h3>네이버파이낸셜</h3>
+            <p>결제인프라 운영</p>
+            <span class="badge badge--live">● 재직 중</span>
+          </div>
+          <div class="job__main">
+            <div class="chips" role="tablist" aria-label="업무 영역 필터">
+              <button class="chip is-on" data-filter="all" type="button">전체 <i>14</i></button>
+              <button class="chip" data-filter="merchant" type="button">가맹점·입점</button>
+              <button class="chip" data-filter="infra" type="button">인프라·연동</button>
+              <button class="chip" data-filter="settle" type="button">정산·대사</button>
+              <button class="chip" data-filter="risk" type="button">한도·리스크</button>
+              <button class="chip chip--ai" data-filter="ai" type="button">✦ AI 자동화</button>
+            </div>
+            <ul class="tasks" id="tasks">
+              <li data-cat="merchant">PG업종, 오픈마켓업종 카드 가맹점 운영</li>
+              <li data-cat="merchant">게임·해외사업자·2차PG 등 카드사 유의업종 가맹점 입점 협의</li>
+              <li data-cat="merchant">카드 하위몰 심사 예외 협의</li>
+              <li data-cat="merchant">카드 가맹점번호 통합 관리</li>
+              <li data-cat="infra">매입 중계 VAN사 신규 연동</li>
+              <li data-cat="infra">매입 전문 포맷 변경 협의</li>
+              <li data-cat="settle">카드사 인터페이스 어드민 ↔ 서비스 빌링 시스템 간 내부 회계 전표 연동 협의</li>
+              <li data-cat="settle">원천사(카드사, 우리은행)와 소득공제 제외 및 문화비 소득공제 대상 가맹점 대사</li>
+              <li data-cat="ai">AI 기반 원천사향 구비서류 자동화</li>
+              <li data-cat="infra">결제/취소 실패 시 카드사·VAN사와 사유 확인 및 유관부서 협업</li>
+              <li data-cat="settle">차액정산 운영</li>
+              <li data-cat="risk">PG사업자 한도 협의 및 운영 관리</li>
+              <li data-cat="merchant">카드사 무이자 할부 행사 관리</li>
+              <li data-cat="infra">카드 BIN번호 관리</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job reveal">
+          <div class="job__side">
+            <span class="job__period">2022.06 – 2024.03</span>
+            <h3>더클래스효성</h3>
+            <p>벤츠 죽전서비스센터 · SA</p>
+          </div>
+          <div class="job__main">
+            <ul class="tasks tasks--plain">
+              <li>지점 예약 KPI 관리</li>
+              <li>차량 정기점검 및 경고등 관련 예약 안내, CS 대응</li>
+              <li>신차 리콜 확인</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="panel reveal">
+            <h3>보유 기술</h3>
+            <dl class="skills">
+              <dt>데이터 분석</dt><dd><span>SQL</span><span>Excel</span></dd>
+              <dt>시각화</dt><dd><span>NAVER 사내 BI</span></dd>
+              <dt>협업 도구</dt><dd><span>Jira</span><span>VS Code</span><span>Figma</span><span>Notion</span></dd>
+              <dt>AI</dt><dd><span class="ai">업무 자동화</span><span class="ai">AI 코딩 에이전트</span></dd>
+            </dl>
+          </div>
+          <div class="panel reveal">
+            <h3>학력 사항</h3>
+            <div class="edu">
+              <span class="job__period">2019.03 – 2021.02</span>
+              <strong>동원대학교 경찰행정과</strong>
+              <p>졸업 · 평점 3.03 / 4.5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING / CONTACT -->
+    <section class="section section--tint" id="contact">
+      <div class="wrap">
+        <p class="eyebrow reveal">How I Work</p>
+        <h2 class="reveal">유연한 소통으로 원하는 목표에 도달하는 담당자</h2>
+        <blockquote class="quote reveal">“여러 파트너사와의 유연한 소통을 통해<br />우리가 원하는 목표에 신속히 도달하겠습니다.”</blockquote>
+        <div class="values">
+          <article class="value reveal"><h3>선제적<br />리스크 소명</h3><p>문제 발생 전 데이터 기반의 논리 구축</p><b>원천사 협상력 극대화</b></article>
+          <article class="value reveal"><h3>빈틈없는<br />인프라 관리</h3><p>철저한 예외 상황 검증</p><b>정산 및 매입 오류 제로</b></article>
+          <article class="value value--ai reveal"><h3>AI 기반<br />운영 효율화</h3><p>반복성 운영 공수의 지속적 자동화</p><b>팀 전체의 생산성 제고</b></article>
+        </div>
+
+        <div class="contact reveal">
+          <div>
+            <h3>함께 이야기 나누고 싶으시다면</h3>
+            <p>편하게 메일 주세요. 빠르게 회신드리겠습니다.</p>
+          </div>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="mailto:thdms5478@naver.com">thdms5478@naver.com</a>
+            <button class="btn btn--ghost-dark" type="button" id="copyEmail">이메일 복사</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 장소은 · Designed &amp; built with <b>Claude Code</b> · Hosted on GitHub Pages</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
