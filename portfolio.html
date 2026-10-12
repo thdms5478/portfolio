@@ -28,7 +28,7 @@
       <div class="wrap">
         <p class="eyebrow">Portfolio</p>
         <h1 style="font-size:clamp(30px,4vw,44px)">대표 프로젝트 4</h1>
-        <p style="margin-top:10px;color:var(--ink-3);max-width:680px">가장 자신 있는 성과를 골라, 어떤 문제를 어떻게 풀었는지 과정까지 보여드립니다.</p>
+        <p style="margin-top:10px;color:var(--ink-3);max-width:680px">프로젝트에 대해 어떤 문제를 어떻게 풀었는지 과정을 그려 보았습니다.</p>
         <div class="pf-nav">
           <a href="#van"><small>01 · 매입 인프라</small><b>매입 VAN 신규 연동 PM</b><span>장애 0건</span></a>
           <a href="#format"><small>02 · 다자간 협의</small><b>전 VAN사 매입전문 동시 전환</b><span>D-Day 동시</span></a>
@@ -68,38 +68,28 @@
             <li><i>7</i><b>오픈 · 운영</b><span>운영 이슈 지속 대응</span></li>
           </ol>
 
-          <p class="subhead">누가 무엇을 했나</p>
-          <table class="raci">
-            <thead><tr><th>단계</th><th>장소은 (PM)</th><th>개발자</th><th>매입 VAN사</th></tr></thead>
-            <tbody>
-              <tr><th>기획</th><td class="me">연동 스펙·운영 정책·엣지케이스 정의</td><td>기술 검토</td><td>스펙 협의</td></tr>
-              <tr><th>개발</th><td class="me">요건 전달, 엣지케이스·QA 리뷰, 일정 관리</td><td>개발</td><td>연동 개발</td></tr>
-              <tr><th>검증</th><td class="me">QA 케이스 설계, 직접 결제 테스트</td><td>QA 대응</td><td>상황별 처리 협의</td></tr>
-              <tr><th>운영</th><td class="me">오픈 후 운영 이슈 대응</td><td>장애 대응</td><td>운영 협의</td></tr>
-            </tbody>
-          </table>
 
-          <p class="subhead">전환은 이렇게 이루어졌습니다</p>
+          <p class="subhead">전환 과정</p>
           <div class="switch" id="vanSwitch" aria-label="매입 경로가 기존 VAN에서 신규 VAN으로 중단 없이 전환되는 과정">
             <div class="switch__head">
               <div class="switch__live"><i></i><span id="swStatus">기존 VAN 경유 매입 중</span></div>
-              <div class="switch__count">매입 처리 <strong id="swCount">0</strong>건 <em>· 중단 0분</em></div>
+              <div class="switch__count">매입 처리 <strong id="swCount">0</strong>건 · <em>중단 0분</em></div>
             </div>
             <div class="lanes">
               <div class="lane is-active" data-lane="old">
-                <span class="lane__node">PG</span>
-                <div class="lane__track"><span class="pk"></span><span class="pk"></span><span class="pk"></span></div>
-                <span class="lane__node lane__node--van">기존 VAN<small id="oldState">운영 중</small></span>
-                <div class="lane__track"><span class="pk"></span><span class="pk"></span></div>
-                <span class="lane__node">카드사</span>
+                <div class="actor actor--me"><b>PG</b><span>네이버페이</span></div>
+                <div class="link"><i></i><i></i></div>
+                <div class="actor lane__van"><b>VAN</b><span>기존 VAN<small id="oldState">운영 중</small></span></div>
+                <div class="link"><i></i><i></i></div>
+                <div class="actor"><b>💳</b><span>카드사</span></div>
               </div>
               <div class="toggle" aria-hidden="true"><span class="toggle__knob"></span><b>전환</b></div>
               <div class="lane" data-lane="new">
-                <span class="lane__node">PG</span>
-                <div class="lane__track"><span class="pk"></span><span class="pk"></span><span class="pk"></span></div>
-                <span class="lane__node lane__node--van lane__node--new">신규 VAN<small id="newState">대기</small></span>
-                <div class="lane__track"><span class="pk"></span><span class="pk"></span></div>
-                <span class="lane__node">카드사</span>
+                <div class="actor actor--me"><b>PG</b><span>네이버페이</span></div>
+                <div class="link"><i></i><i></i></div>
+                <div class="actor lane__van"><b>VAN</b><span>신규 VAN<small id="newState">대기</small></span></div>
+                <div class="link"><i></i><i></i></div>
+                <div class="actor"><b>💳</b><span>카드사</span></div>
               </div>
             </div>
             <div class="switch__foot">
@@ -239,7 +229,7 @@
           <div class="demo__grid">
             <form class="demo__form" id="demoForm" autocomplete="off">
               <label>신청일<input name="date" value="2026.10.13" /></label>
-              <label>간판명<input name="sign" value="소은문고 온라인몰" /></label>
+              <label>간판명<input name="sign" value="헥토파이낸셜" /></label>
               <label>대금 입금계좌<input name="acct" value="가상은행 000-0000-0000" /></label>
               <label>채번 요청자<input name="req" value="장소은 / 결제인프라" /></label>
               <button class="btn btn--primary" type="submit"><span class="spark">✦</span> 서류 자동 작성</button>
@@ -249,6 +239,27 @@
           <p class="demo-note">※ 가상 데이터로 실제 프로그램의 동작 원리를 재현한 데모입니다. 카드사명과 양식은 예시입니다.</p>
         </article>
 
+        <section class="pledge reveal" aria-labelledby="pledgeTitle">
+          <p class="eyebrow">After Joining</p>
+          <h2 id="pledgeTitle">입사 후 이렇게 기여하겠습니다</h2>
+          <div class="pledge__grid">
+            <article><span>01</span><h3>가맹점 입점 속도 개선</h3><p>카드사별 심사 기준과 반송 사유를 정리해<br />신규·유의업종 가맹점의 입점 기간을 단축하겠습니다.</p></article>
+            <article><span>02</span><h3>한도·리스크 선제 관리</h3><p>카드사별 한도 소진을 상시 점검하고<br />초과 전 증액 협의로 결제 중단을 방지하겠습니다.</p></article>
+            <article><span>03</span><h3>연동·전문 변경 PM</h3><p>VAN·카드사 연동과 전문 변경 프로젝트를<br />스펙 정의부터 QA까지 책임지고 수행하겠습니다.</p></article>
+            <article><span>04</span><h3>반복 업무 자동화</h3><p>구비서류 작성 등 반복 업무를 AI로 자동화해<br />팀이 협의와 판단에 집중하도록 하겠습니다.</p></article>
+          </div>
+          <div class="contact">
+            <div>
+              <h3>검증된 실무 경험으로, 입사 첫날부터 기여하겠습니다</h3>
+              <p>연락 기다리겠습니다.</p>
+            </div>
+            <div class="contact__actions">
+              <a class="btn btn--line" href="mailto:thdms5478@naver.com">thdms5478@naver.com</a>
+              <button class="btn btn--dark" type="button" data-copy="thdms5478@naver.com">이메일 복사</button>
+            </div>
+          </div>
+        </section>
+
         <nav class="pager no-print" aria-label="문서 이동">
           <a href="career.html"><small>← 이전</small><b>경력기술서</b></a>
           <a href="index.html"><small>처음으로 →</small><b>홈</b></a>
@@ -257,7 +268,7 @@
     </section>
   </main>
 
-  <footer class="footer">© 2026 장소은 · Designed &amp; built with Claude Code</footer>
+  <footer class="footer">© 2026 장소은</footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="assets/js/main.js"></script>
 </body>
