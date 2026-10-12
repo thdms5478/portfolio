@@ -84,7 +84,16 @@ h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
 /* ---------- hero (home) ---------- */
 .hero { position: relative; padding: 88px 0 96px; overflow: hidden; }
 .hero::before { content: ""; position: absolute; right: -180px; top: -200px; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle, rgba(239,127,66,.22), transparent 62%); pointer-events: none; }
-.hero__grid { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; gap: 56px; align-items: center; }
+.hero__grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 48px; align-items: center; }
+.hero__title { font-size: clamp(30px, 3.3vw, 40px); line-height: 1.35; }
+.hero__title span { display: block; white-space: nowrap; }
+.hero__docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 32px; }
+.hero__docs a { display: block; padding: 16px 18px; border-radius: 16px; background: #fff; border: 1px solid var(--line); transition: border-color .2s, box-shadow .2s, transform .2s var(--ease); }
+.hero__docs a:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-3px); }
+.hero__docs small { display: block; font-size: 12px; font-weight: 800; color: var(--accent); }
+.hero__docs b { display: block; font-size: 18px; margin: 2px 0; }
+.hero__docs b::after { content: ' →'; color: var(--accent); }
+.hero__docs span { font-size: 13.5px; color: var(--ink-3); }
 .hero h1 em { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero__lead { margin-top: 22px; font-size: 18px; color: var(--ink-2); max-width: 600px; }
 .hero__cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 32px; }
@@ -470,6 +479,7 @@ h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
 /* ---------- responsive ---------- */
 @media screen and (max-width: 1024px) {
   .hero__grid, .built { grid-template-columns: 1fr; }
+  .idcard { max-width: 520px; }
   .kpis, .pf-nav { grid-template-columns: repeat(2, 1fr); }
   .docs3 { grid-template-columns: 1fr; }
   .doccard { min-height: 0; }
@@ -484,6 +494,8 @@ h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
   .nav__links::-webkit-scrollbar { display: none; }
   .nav__print { margin-left: auto; padding: 7px 12px; font-size: 13px; }
   .hero { padding: 48px 0 64px; }
+  .hero__title span { white-space: normal; display: inline; }
+  .hero__docs { grid-template-columns: 1fr; }
   .hero__lead { font-size: 16px; }
   .section { padding: 64px 0; }
   .kpis { gap: 10px; }
