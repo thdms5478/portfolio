@@ -572,7 +572,14 @@ h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
   .bar__fill { height: var(--h) !important; }
   .t { border-bottom: 0; }
   .wrap, .wrap--narrow { width: 100%; }
-  .r-sec { grid-template-columns: 110px 1fr; padding: 14px 0; }
+  .r-sec { grid-template-columns: 110px 1fr; padding: 10px 0; }
+  .r-sum div { padding: 9px 12px; }
+  .r-sum strong { font-size: 19px; }
+  .r-sum span { font-size: 11.5px; }
+  .r-skills { gap: 6px 12px; }
+  .r-skills dd .chip { font-size: 12px; padding: 3px 9px; }
+  .r-job__role { margin-bottom: 6px; }
+  .r-job__top b { font-size: 16px; }
   .r-sum { margin: 14px 0 4px; }
   .r-head { padding-bottom: 16px; }
   .r-head img { width: 76px; height: 76px; }
