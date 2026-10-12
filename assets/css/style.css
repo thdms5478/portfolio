@@ -615,3 +615,17 @@ h4 { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
 
 main.wrap--narrow { padding-bottom: 72px; }
 .pledge .contact { text-align: left; }
+
+/* 흰 배경 카드 톤 (홈과 동일) */
+@media screen and (min-width: 1100px) { .pledge__quote { white-space: nowrap; } }
+.demo__form { background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.demo__form label { color: var(--ink-3); }
+.demo__form input { color: var(--ink); border-color: var(--line); background: var(--tint); }
+.demo__form input:focus { background: #fff; }
+.box--dark { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.box--dark h4 { color: var(--accent-deep); }
+.box--dark .bignum { color: var(--accent); }
+.box--dark .bars { border-bottom-color: var(--line); }
+.box--dark .bar label { color: var(--ink-3); }
+.box--dark .bar__fill span { color: var(--ink); }
+.box--dark .bar__fill--muted { background: #d6d4de; }
