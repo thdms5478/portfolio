@@ -629,3 +629,10 @@ main.wrap--narrow { padding-bottom: 72px; }
 .box--dark .bar label { color: var(--ink-3); }
 .box--dark .bar__fill span { color: var(--ink); }
 .box--dark .bar__fill--muted { background: #d6d4de; }
+@media print {
+  .c-block__title, .subhead, .proj__head { break-after: avoid; }
+  #skills, #prev, #etc, .docs, .pledge, .pledge__grid, .switch, .sync { break-inside: avoid; }
+  [data-copy] { display: none !important; }
+  main > .section:last-child { padding-bottom: 0; }
+  .pledge { margin-top: 24px; }
+}
