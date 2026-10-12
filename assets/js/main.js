@@ -58,39 +58,6 @@
   const KW = {};
   KEYWORDS.forEach((k) => k.keys.forEach((key) => (KW[key] = k)));
 
-  const tip = document.createElement("div");
-  tip.className = "tip";
-  tip.setAttribute("role", "tooltip");
-  document.body.appendChild(tip);
-  let tipFor = null;
-  const showTip = (el) => {
-    const k = KW[el.dataset.t || el.textContent.trim()];
-    if (!k) return;
-    tipFor = el;
-    tip.innerHTML = `<b>${k.title}</b>${k.exp}<em>→ ${k.val}</em>`;
-    tip.classList.add("is-show");
-    const r = el.getBoundingClientRect();
-    const tw = Math.min(320, innerWidth - 24);
-    tip.style.maxWidth = tw + "px";
-    const left = Math.max(12, Math.min(r.left + r.width / 2 - tw / 2, innerWidth - tw - 12));
-    const below = r.bottom + 10 + tip.offsetHeight < innerHeight;
-    tip.style.left = left + "px";
-    tip.style.top = (below ? r.bottom + 8 : r.top - tip.offsetHeight - 8) + "px";
-  };
-  const hideTip = () => { tip.classList.remove("is-show"); tipFor = null; };
-  $$(".t").forEach((el) => {
-    // 제 경험과 연결되지 않는 단어는 밑줄 없이 일반 텍스트로 둔다
-    if (!KW[el.dataset.t || el.textContent.trim()]) { el.classList.remove("t"); return; }
-    el.tabIndex = 0;
-    el.addEventListener("mouseenter", () => showTip(el));
-    el.addEventListener("mouseleave", hideTip);
-    el.addEventListener("focus", () => showTip(el));
-    el.addEventListener("blur", hideTip);
-    el.addEventListener("click", (e) => { e.stopPropagation(); tipFor === el ? hideTip() : showTip(el); });
-  });
-  document.addEventListener("click", hideTip);
-  addEventListener("scroll", hideTip, { passive: true });
-
   // 키워드로 보는 채용 포인트 (경력기술서 하단)
   const gl = $("#glossary");
   if (gl) gl.innerHTML = KEYWORDS.map((k) => `<div><dt>${k.title}</dt><dd>${k.exp}</dd><dd class="val">→ ${k.val}</dd></div>`).join("");
@@ -126,22 +93,22 @@
 
   /* ---------- 승인·매입·정산 전 과정 지도 ---------- */
   // links: 고객-하위몰, 하위몰-PG, PG-VAN, VAN-카드사 / fwd: 오른쪽, rev: 왼쪽(대금), both: 요청·응답, opt: 경유 가능
-  // 단계별: 제목 / 업무 맥락 / 근거 / 담당 업무 / 입사 후 기여
+  // 단계별: 제목 / 업무 맥락(줄 단위) / 근거 / 담당 업무 / 입사 후 기여
   const STAGES = [
     {
       label: "가맹점 개설", sub: "결제 준비",
       on: [1, 2, 3, 4], links: ["off", "fwd", "fwd", "fwd"],
       title: "카드 결제수단 연동을 위해 먼저 카드사에 가맹점 등록부터",
-      ctx: "네이버페이는 가맹점과 네이버쇼핑 서비스에 모두 카드결제수단을 제공합니다. 신규 가맹점 입점 시 카드사 가맹점번호와 단말기 ID를 채번해 내부 시스템에 연결하고, 카드사 심사까지 통과시켜 카드결제가 이루어질 수 있도록 했습니다.",
+      ctx: ["네이버페이는 가맹점과 네이버쇼핑 서비스에 모두 카드결제수단을 제공합니다.", "신규 가맹점 입점 시 카드사 가맹점번호와 단말기 ID를 채번해 내부 시스템에 연결하고, 카드사 심사까지 통과시켜 카드결제가 이루어질 수 있도록 했습니다."],
       proof: ["개설 6단계 전담", "구비서류 리드타임 −50%"],
-      mine: ["가맹점번호·단말기 ID 채번, 어드민 세팅, 하위몰 심사, QA, 실매출까지 개설 전 과정 담당", "카드사 심사 반송 시 사유 파악 및 보완 협의로 심사 통과", "AI 기반 구비서류 자동 작성으로 지연된 개설 건 해소"],
+      mine: ["가맹점번호·단말기 ID 채번부터 심사·QA·실매출까지 개설 전 과정 담당", "카드사 심사 반송 시 사유 파악 및 보완 협의로 심사 통과", "AI 기반 구비서류 자동 작성으로 지연된 개설 건 해소"],
       value: "신규·유의업종 가맹점의 카드사 입점 업무를 바로 수행할 수 있습니다.",
     },
     {
       label: "승인", sub: "한도·정책",
       on: [0, 1, 2, 3, 4], links: ["fwd", "fwd", "opt", "both"],
       title: "결제가 막히지 않도록 카드사 한도와 정책까지",
-      ctx: "카드사는 PG사업자 전체와 환금성 업종에 별도의 승인한도를 부여합니다. 한도 부족으로 결제가 중단되지 않도록 카드사와 사전에 조율했습니다.",
+      ctx: ["카드사는 PG사업자 전체와 환금성 업종에 별도의 승인한도를 부여합니다.", "한도 부족으로 결제가 중단되지 않도록 카드사와 사전에 조율했습니다."],
       proof: ["게임 가맹점 일 한도 20배", "카드사 직접 협의"],
       mine: ["PG 승인한도 초과 전 카드사·유관부서와 담보 협의 후 사전 증액", "환금성 업종(상품권·게임·포인트 충전) 카드사별 한도 정책 관리", "카드 일반결제 카드사별 정책 취합 및 유관부서 문의 대응", "결제 실패 시 카드사·VAN사와 원인 파악 및 해소"],
       value: "고한도·환금성 업종 가맹점의 한도 협의를 바로 수행할 수 있습니다.",
@@ -150,25 +117,25 @@
       label: "매입", sub: "VAN·전문",
       on: [2, 3, 4], links: ["off", "off", "fwd", "fwd"],
       title: "승인된 거래가 대금으로 확정되도록 매입 경로까지",
-      ctx: "승인된 거래는 매입 VAN사를 통해 카드사에 청구되어야 대금이 확정됩니다. 신규 매입 VAN사 연동과 매입전문 포맷 변경을 PM으로 수행했습니다.",
+      ctx: ["승인된 거래는 매입 VAN사를 통해 카드사에 청구되어야 대금이 확정됩니다.", "신규 매입 VAN사 연동과 매입전문 포맷 변경을 PM으로 수행했습니다."],
       proof: ["VAN 연동 PM · 장애 0건", "매입전문 동일 일자 전환"],
-      mine: ["신규 매입 VAN사 연동 PM: 연동 스펙·운영 정책·엣지케이스 정의, QA 설계, 결제 테스트", "연동 VAN사 전체와 매입전문 포맷 변경 협의 및 동일 일자 반영", "매입한도 관리, 취소 실패 원인 분석 및 재처리 협의"],
+      mine: ["신규 매입 VAN사 연동 PM: 스펙·정책·엣지케이스 정의, QA, 결제 테스트", "연동 VAN사 전체와 매입전문 포맷 변경 협의 및 동일 일자 반영", "매입한도 관리, 취소 실패 원인 분석 및 재처리 협의"],
       value: "VAN·카드사 신규 연동과 전문 변경 프로젝트를 수행할 수 있습니다.",
     },
     {
       label: "정산", sub: "차액·회계",
       on: [1, 2, 4], dim: [3], links: ["off", "rev", "rev", "rev"],
       title: "들어온 대금이 정확히 지급되도록 정산과 회계까지",
-      ctx: "카드사 대금은 가맹점 정산과 내부 회계로 이어집니다. 영세·중소 가맹점의 차액정산과 내부 회계 처리 기준 협의를 담당했습니다.",
+      ctx: ["카드사 대금은 가맹점 정산과 내부 회계로 이어집니다.", "영세·중소 가맹점의 차액정산과 내부 회계 처리 기준 협의를 담당했습니다."],
       proof: ["SQL 대량 데이터 직접 추출", "회계·정산 부서 협의"],
-      mine: ["차액정산 운영 및 반송 건 카드사 협의", "대량 반송 발생 시 SQL로 대상 데이터 직접 추출", "카드사 인터페이스 어드민 ↔ 서비스 빌링 시스템 간 회계 처리·채권 생성 기준 협의"],
+      mine: ["차액정산 운영 및 반송 건 카드사 협의", "대량 반송 발생 시 SQL로 대상 데이터 직접 추출", "카드사 인터페이스 어드민 ↔ 빌링 시스템 간 회계 처리·채권 생성 기준 협의"],
       value: "대외 협의 결과를 내부 정산·회계까지 연결할 수 있습니다.",
     },
     {
       label: "사후관리", sub: "세무·행사",
       on: [2, 4], dim: [3], links: ["off", "fwd", "both", "both"],
       title: "결제 이후에도 세무와 규정 준수까지",
-      ctx: "카드 매출은 연말정산 소득공제와 연결됩니다. 소득공제 대상·제외 정책을 관리하고, 카드사와 대상 매출을 대사했습니다.",
+      ctx: ["카드 매출은 연말정산 소득공제와 연결됩니다.", "소득공제 대상·제외 정책을 관리하고, 카드사와 대상 매출을 대사했습니다."],
       proof: ["소득공제 정책 관리", "연말정산 매출 대사"],
       mine: ["문화비 소득공제·소득공제 제외 정책 관리 및 유관부서 가이드", "연말정산 대상 매출 카드사 대사", "카드사 무이자 할부 행사 공문 취합 및 내부 노출 관리"],
       value: "신규 서비스의 세무·규정 준수 기준을 사전에 안내할 수 있습니다.",
@@ -195,16 +162,18 @@
         l.className = "link" + (st === "opt" ? " is-opt fwd" : st === "off" ? "" : " " + st);
       });
       pane.innerHTML = `
-        <div class="life__grid life__pane">
-          <div class="life__what">
-            <h3>${s.title}</h3>
-            <p>${s.ctx}</p>
-            <div class="life__proof">${s.proof.map((p) => `<span>${p}</span>`).join("")}</div>
-            <p class="life__value"><b>입사 후 기여</b>${s.value}</p>
-          </div>
-          <div class="life__mine">
-            <h4>✦ 담당 업무</h4>
-            <ul>${s.mine.map((m) => `<li>${m}</li>`).join("")}</ul>
+        <div class="life__pane">
+          <h3 class="life__title">${s.title}</h3>
+          <p class="life__ctx">${s.ctx.join("<br />")}</p>
+          <div class="life__grid2">
+            <div class="life__mine">
+              <h4>✦ 담당 업무</h4>
+              <ul>${s.mine.map((m) => `<li>${m}</li>`).join("")}</ul>
+            </div>
+            <div class="life__side">
+              <div class="life__proof">${s.proof.map((p) => `<span>${p}</span>`).join("")}</div>
+              <p class="life__value"><b>입사 후 기여</b>${s.value}</p>
+            </div>
           </div>
         </div>`;
     };
